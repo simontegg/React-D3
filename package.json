@@ -1,0 +1,13 @@
+{
+  "name": "react_D3",
+  "author": "simontegg",
+  "version": "0.0.0",
+  "license": "AGPLv3",
+  "main": "index.js",
+  "dependencies": {
+    "d3": "*",
+    "domready": "*",
+    "lodash": "^2.4.1",
+    "react": "*"
+  }
+}

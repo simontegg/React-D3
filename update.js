@@ -2,13 +2,13 @@ module.exports = function(props) {
     updateCircle = function(me) {
         me
             .attr("r", function(d) { return d.r; })
-            .attr("cx", function(d) { return 3 + d.r; })
-            .attr("cy", function(d) { return 3 + d.r; })
+            .attr("cx", function(d) { return d.cx; })
+            .attr("cy", function(d) { return d.cy; })
             .attr("fill", function(d) { return d.color; });
     };
 
     return function(me) {
-        circle = me.selectAll("circle")
+        circle = me
             .data([props]);
         circle
             .enter().append("circle")
