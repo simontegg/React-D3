@@ -5,9 +5,9 @@
   "license": "AGPLv3",
   "main": "index.js",
   "dependencies": {
-    "d3": "*",
+    "d3": "^3.4.11",
     "domready": "*",
     "lodash": "^2.4.1",
-    "react": "*"
+    "react": "^0.11.1"
   }
 }

@@ -6,7 +6,6 @@ module.exports = function(props) {
             .attr("cy", function(d) { return d.cy; })
             .attr("fill", function(d) { return d.color; });
     };
-
     return function(me) {
         circle = me
             .data([props]);

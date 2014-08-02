@@ -5,6 +5,7 @@
 var update = require('./update');
 var d3 = require('d3');
 var React = require('react/addons');
+var drag = require('./drag')
 
 module.exports = React.createClass({
   render: function() {
@@ -17,10 +18,10 @@ module.exports = React.createClass({
      	</circle>
      	);
   },
-  // componentDidMount: function () {
-  //     d3.select(this.getDOMNode())
-  //         .call(update(this.props));
-  // },
+  componentDidMount: function () {
+      d3.select(this.getDOMNode())
+          .call(drag);
+  },
   shouldComponentUpdate: function(props) {
       d3.select(this.getDOMNode())
           .call(update(props));

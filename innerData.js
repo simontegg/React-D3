@@ -1,20 +1,14 @@
 module.exports = [ 
   {
-    cx: 50,
-    cy: 50,
-    r: 50,
+    value: 150,
     color: "red"
   },
   {
-    cx: 150,
-    cy: 50,
-    r: 50,
+    value: 50,
     color: "blue"
   },
     {
-    cx: 50,
-    cy: 150,
-    r: 50,
+    value: 100,
     color: "green"
   }
 ]
