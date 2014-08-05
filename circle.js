@@ -5,26 +5,31 @@
 var update = require('./update');
 var d3 = require('d3');
 var React = require('react/addons');
-var drag = require('./drag')
+var drag = require('./drag');
+var initCircle = require('./initCircle');
 
 module.exports = React.createClass({
   render: function() {
+
+    console.log(this.props, 'this.props.')
+
      return (
      	<circle 
-     		cx={this.props.cx} 
-     		cy={this.props.cy} 
-     		r={this.props.r} 
+     		cx={this.props.ox} 
+     		cy={this.props.oy} 
+     		r={0} 
      		fill={this.props.color} >
      	</circle>
      	);
   },
   componentDidMount: function () {
       d3.select(this.getDOMNode())
-          .call(drag);
+          .call(initCircle(this.props))
   },
   shouldComponentUpdate: function(props) {
+
       d3.select(this.getDOMNode())
-          .call(update(props));
+          .call(initCircle(props));
       
       // always skip React's render step
       return false;

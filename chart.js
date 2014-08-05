@@ -20,7 +20,7 @@ module.exports = React.createClass({
   },
   renderCircle: function(key) {
     var d = this.state[key];
-    return <Circle cx={d.x} cy={d.y} r={d.r} color={d.color} />
+    return <Circle ox={d.ox} oy={d.oy} cx={d.x} cy={d.y} r={d.r} color={d.color} />
   },
 });
 
