@@ -3,25 +3,33 @@
  */
 
 var React = require('react');
-var Circle = require('./circle');
+var Allocation = require('./allocation');
 var _ = require('lodash');
+
+
 
 module.exports = React.createClass({
   getInitialState: function() {
-    // React doesn't support arrays
-    return _.object(_.range(this.props.data.length), this.props.data);
+    return {data:this.props.data};
   },
   render: function() {
     return (
       <svg width={this.props.width} height={this.props.height}>
-        {Object.keys(this.state).map(this.renderCircle)}
+        {this.state.data.map(this.renderChartElement)}
       </svg>
     );
   },
-  renderCircle: function(key) {
-    var d = this.state[key];
-    return <Circle ox={d.ox} oy={d.oy} cx={d.x} cy={d.y} r={d.r} color={d.color} />
-  },
+  renderChartElement: function(d) {
+    switch (d.type) {
+      case 'allocation':
+        return <Allocation ox={d.ox} oy={d.oy} cx={d.x} cy={d.y} r={d.r} color={d.color} />
+        break;
+      case 'bucket':
+        null
+        break;
+    }
+  }
+
 });
 
 
