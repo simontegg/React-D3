@@ -14,11 +14,10 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      cx: this.props.cx,
-      cy: this.props.cy,
-      r: this.props.r,
-      fill: this.props.color,
-      dragging: false,
+      cx: this.props.datum.x,
+      cy: this.props.datum.y,
+      r: this.props.datum.r,
+      fill: this.props.datum.color,
       dragStart: this.props.dragStart
     }
   },
@@ -38,7 +37,7 @@ module.exports = React.createClass({
   },
 
   compontWillRecieveProps: function(nextProps) {
-    console.log('recieved this.props.', nextProps)
+
   },
 
   onDrag: function() {
@@ -50,14 +49,6 @@ module.exports = React.createClass({
       cy: this.state.cy + dy
     })
 
-  },
-
-  // dragStart: function() {
-  //   this.setState({dragging: true})
-  // },
-
-  dragEnd: function() {
-    this.setState({dragging: false})
   }
 
 });

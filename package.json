@@ -15,6 +15,7 @@
   "dependencies": {
     "bluebird": "^2.2.2",
     "d3": "^3.4.11",
+    "d3-scale": "0.0.0",
     "domready": "*",
     "lodash": "^2.4.1",
     "mouse-position": "^1.0.0",

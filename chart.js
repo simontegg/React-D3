@@ -7,18 +7,14 @@ var Allocation = require('./allocation');
 var Bucket = require('./bucket');
 var _ = require('lodash');
 
-
-
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      dragging: false,
-      dragKey: null
+      dragging: false
     };
   },
 
   render: function() {
-
     return (
       <svg 
         width={this.props.width} 
@@ -26,21 +22,21 @@ module.exports = React.createClass({
         onMouseUp={this.dragEnd}
         onMouseMove={this.onDrag}>
         {this.props.data.map(function(d){
+          console.log(d)
           switch (d.type) {
             case 'allocation':
               return <Allocation 
                 ref='allocation' 
                 dragStart={this.dragStart}
                 key={d.id} 
-                ox={d.ox} 
-                oy={d.oy} 
-                cx={d.x} 
-                cy={d.y} 
-                r={d.r} 
-                color={d.color} />
+                datum={d} />
               break;
             case 'bucket':
-              return <Bucket ref='bucket' key={d.id} ox={d.ox} oy={d.oy} cx={d.x} cy={d.y} r={d.r} color={d.color} />
+              return <Bucket 
+                ref='bucket' 
+                key={d.id} 
+                datum={d} 
+                scale={this.props.scale} />
               break;
           };
         }.bind(this))}
@@ -57,8 +53,7 @@ module.exports = React.createClass({
   },
 
   dragStart: function(e) {
-
-    this.setState({dragging: true, dragKey: e.dispatchMarker.slice(4)})
+    this.setState({dragging: true})
   },
 
   dragEnd: function() {
