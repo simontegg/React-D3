@@ -10,16 +10,14 @@ var bubble = require('./bubble');
 var setOrigin = require('./setOrigin');
 var Chart = require('./chart');
 var svgData = require('./svgData');
-var max = require('./max')
+var max = require('./max');
 
 var allocation = {type: 'allocation', value: 50, color: 'grey'}
 
-bubble.size([svgData.width, svgData.height])
+bubble.size([svgData.width, svgData.height]);
 buckets = max(buckets, 'target', 'allocated');
-blobs = bubble({children:[{children: buckets}, allocation]})
+blobs = bubble({children:[{children: buckets}, allocation]});
 blobs = setOrigin(blobs);
-console.log(blobs)
-
 
 domready(function() {
 

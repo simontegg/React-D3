@@ -7,29 +7,57 @@ var d3 = require('d3');
 var React = require('react/addons');
 var drag = require('./drag');
 var initCircle = require('./initCircle');
+var mousePosition = require('mouse-position');
+var mouse = mousePosition();
 
 module.exports = React.createClass({
+
+  getInitialState: function() {
+    return {
+      cx: this.props.cx,
+      cy: this.props.cy,
+      r: this.props.r,
+      fill: this.props.color,
+      dragging: false,
+      dragStart: this.props.dragStart
+    }
+  },
+
   render: function() {
+    var onDrag = this.state.dragging ? this.onDrag : null;
+    console.log(this.props.key, 'key')
      return (
      	<circle 
-     		cx={this.props.ox} 
-     		cy={this.props.oy} 
-     		r={0} 
-     		fill={this.props.color} >
+        onMouseDown={this.state.dragStart}
+     		cx={this.state.cx} 
+     		cy={this.state.cy} 
+     		r={this.state.r} 
+     		fill={this.state.fill} >
      	</circle>
      	);
   },
-  componentDidMount: function () {
-      d3.select(this.getDOMNode())
-          .call(initCircle(this.props))
-          .call(drag)
-  },
-  shouldComponentUpdate: function(props) {
 
-      d3.select(this.getDOMNode())
-          .call(initCircle(props));
-      
-      // always skip React's render step
-      return false;
+  compontWillRecieveProps: function(nextProps) {
+    console.log('recieved this.props.', nextProps)
+  },
+
+  onDrag: function() {
+    var dx = mouse.x - mouse.prevX;
+    var dy = mouse.y - mouse.prevY;
+    
+    this.setState({
+      cx: this.state.cx + dx,
+      cy: this.state.cy + dy
+    })
+
+  },
+
+  // dragStart: function() {
+  //   this.setState({dragging: true})
+  // },
+
+  dragEnd: function() {
+    this.setState({dragging: false})
   }
+
 });

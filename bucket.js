@@ -23,7 +23,6 @@ module.exports = React.createClass({
           .call(initCircle(this.props))
   },
   shouldComponentUpdate: function(props) {
-
       d3.select(this.getDOMNode())
           .call(initCircle(props));
       
