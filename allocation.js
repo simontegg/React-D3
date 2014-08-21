@@ -23,8 +23,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var onDrag = this.state.dragging ? this.onDrag : null;
-    console.log(this.props.key, 'key')
      return (
      	<circle 
         onMouseDown={this.state.dragStart}
