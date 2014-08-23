@@ -40,55 +40,32 @@ module.exports = React.createClass({
 
     var segmentArc = arc();
 
-    console.log(segmentArc)
      return (
       <g>
+        <circle
+          className="target"
+          cx={this.state.x}
+          cy={this.state.y}
+          r={this.state.targetR}
+          fill='white'
+          stroke={this.state.fill} >
+        </circle>
         <path
           className='allocated'
           transform={this.state.translate}
           d={segmentArc}
           fill={this.state.fill} >
         </path>
-        <circle
-          className="target"
-          cx={this.state.x}
-          cy={this.state.y}
-          r={this.state.targetR}
-          fill='none'
-          stroke={this.state.fill} >
-        </circle>
+
       </g>
       );
   },
 
-  animate: function(attr, targetValue, duration, ease) {
-    var cmp = this;
-    var interpolator;
-    if (_.isFunction(targetValue)) {
-      interpolator = targetValue;
-    } else {
-      interpolator = d3.interpolate(this.state[attr], targetValue);
-    }
-    var ease = d3.ease(ease || 'cubic-in-out');
-    var start = null;
-    var duration = duration ? duration : 500;
+  animate: require('./lib/animate'),
 
-    var tick = function(timeStamp) {
-      var t0,t1,value; 
-      if (start === null) start = timeStamp;
-      t0 = (timeStamp - start)/duration;
-      t1 = ease(t0);
-      cmp.setState(_.object([attr], [interpolator(t1)]));
-      if (t0 < 1) {
-        requestAnimationFrame(tick)
-      }
-    }
-    
-    requestAnimationFrame(tick);
-
+  activate: function() {
+    console.log('activating')
   },
-
-
 
 
   animateArc: function() {
