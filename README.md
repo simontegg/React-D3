@@ -14,4 +14,4 @@ npm run develop
 
 Demonstrates interaction-context based shape-tweening. 
 
-Maintains a consistent data model by using React's ```.setState()``` for animations with D3 methods as helpers. 
+Maintains a consistent data model by using React's ```.setState()``` for animations with D3 methods as helpers. React animations heavily based on [react.animate](https://github.com/pleasetrythisathome/react.animate).
