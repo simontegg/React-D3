@@ -12,8 +12,11 @@
       "reactify"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simontegg/react_d3"
+  },
   "dependencies": {
-    "bluebird": "^2.3.0",
     "d3": "^3.4.11",
     "d3-builder": "^0.2.0",
     "d3-scale": "0.0.0",
@@ -22,7 +25,6 @@
     "mouse-position": "^1.0.0",
     "numeric": "^1.2.6",
     "react": "^0.11.1",
-    "react-animate": "^0.1.5",
     "reactify": "^0.14.0",
     "uuid": "^1.4.1"
   },
