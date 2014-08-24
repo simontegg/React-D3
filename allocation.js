@@ -2,11 +2,8 @@
  * @jsx React.DOM
  */
 
-var update = require('./update');
 var d3 = require('d3');
 var React = require('react/addons');
-var drag = require('./drag');
-var initCircle = require('./initCircle');
 var mousePosition = require('mouse-position');
 var mouse = mousePosition();
 var pathTween = require('./lib/pathCoordsTween')

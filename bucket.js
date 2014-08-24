@@ -2,7 +2,6 @@
  * @jsx React.DOM
  */
 
-var update = require('./update');
 var React = require('react/addons');
 var AnimateMixin = ('react-animate');
 var d3 = require('d3');
