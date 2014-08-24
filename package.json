@@ -5,7 +5,9 @@
   "license": "AGPLv3",
   "main": "index.js",
   "scripts": {
-    "develop": "beefy index.js:bundle.js --live --index=index.html"
+    "develop": "beefy index.js:bundle.js --live --index=index.html",
+    "build": "mkdir -p dist && cp index.html dist/ && browserify index.js -o dist/bundle.js",
+    "deploy": "npm run build && gulp deploy"
   },
   "browserify": {
     "transform": [
@@ -29,6 +31,8 @@
     "uuid": "^1.4.1"
   },
   "devDependencies": {
-    "beefy": "^2.1.0"
+    "beefy": "^2.1.0",
+    "gulp": "^3.8.7",
+    "gulp-gh-pages": "^0.3.3"
   }
 }
