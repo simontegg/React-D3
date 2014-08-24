@@ -55,24 +55,17 @@ module.exports = React.createClass({
   },
 
   arcForm: function(options) {
-    console.log('test arcForm', options)
+    options['coordinates'] = this.state.coordinates;
     var arcCoords = this.arc(options);
-
-    console.log(this.state.coordinates, arcCoords)
-
     var interpolator = pathTween(this.state.coordinates, arcCoords)();
-
-    console.log(interpolator, 'interpolator')
-
     this.animate('coordinates', interpolator, 500);
-
-
-
-
   }, 
 
-  circleForm: function() {
+  circleForm: function(options) {
     console.log('test circleForm')
+    var circleCoords = this.circle(options)
+    var interpolator = pathTween(this.state.coordinates, circleCoords)();
+    this.animate('coordinates', interpolator, 500)
   },
 
   onDrag: function() {

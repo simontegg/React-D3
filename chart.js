@@ -89,10 +89,6 @@ module.exports = React.createClass({
           dragDatum.y - (radius/2)*Math.sin(midAngle)
         ];
 
-
-
-
-
     this.refs.dragElement.arcForm({
       startAngle: startAngle, 
       endAngle: endAngle, 
@@ -106,8 +102,8 @@ module.exports = React.createClass({
 
   deActivate: function(e) {
     var key = e.dispatchMarker.split("$")[1];
-    this.refs.dragElement.circleForm();
-    console.log('deactivated')
+    var coordinates = this.refs.dragElement.state.coordinates
+    this.refs.dragElement.circleForm({coordinates: coordinates});
 
   },
 
