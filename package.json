@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "beefy index.js:bundle.js --live --index=index.html",
-    "build": "mkdir -p dist && cp index.html dist/ && browserify index.js -o dist/bundle.js",
+    "build": "mkdir -p dist && cp index.html dist/ && browserify index.js -o dist/bundle.js -d",
     "deploy": "npm run build && gulp deploy"
   },
   "browserify": {
