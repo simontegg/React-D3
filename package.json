@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "develop": "beefy index.js:bundle.js --live --index=index.html",
-    "build": "mkdir -p dist && cp index.html dist/ && browserify index.js -o dist/bundle.js -d",
+    "build-js": "browserify index.js -o dist/bundle.js -d -p [minifyify --map bundle.map.json --output dist/bundle.map.json]",
+    "build-html": "cp index.html dist/",
+    "build": "mkdir -p dist && npm run build-html && npm run build-js",
     "deploy": "npm run build && gulp deploy"
   },
   "browserify": {
@@ -32,7 +34,9 @@
   },
   "devDependencies": {
     "beefy": "^2.1.0",
+    "browserify": "^5.10.1",
     "gulp": "^3.8.7",
-    "gulp-gh-pages": "^0.3.3"
+    "gulp-gh-pages": "^0.3.3",
+    "minifyify": "^4.1.0"
   }
 }
